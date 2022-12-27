@@ -15,14 +15,16 @@ function RemoveFilterButton() {
   };
 
   return (
-    <button
-      type="button"
-      data-testid="All-category-filter"
-      className="btn btn-secondary"
-      onClick={ removeAllFilters }
-    >
-      All
-    </button>
+    <div className="remove-filters">
+      <button
+        type="button"
+        data-testid="All-category-filter"
+        className="btn btn-secondary"
+        onClick={ removeAllFilters }
+      >
+        Remove Filters
+      </button>
+    </div>
   );
 }
 

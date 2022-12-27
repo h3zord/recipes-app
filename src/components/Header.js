@@ -68,9 +68,7 @@ function Header(props) {
           {searchTest()}
         </label>
       </section>
-      <div>
-        {toggle ? <SearchBar url={ pathname } /> : ''}
-      </div>
+      {toggle ? <SearchBar url={ pathname } /> : ''}
     </header>
   );
 }

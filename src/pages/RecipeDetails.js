@@ -104,26 +104,32 @@ class RecipeDetails extends React.Component {
               data-testid="recipe-photo"
               className="recipe-details-photo"
             />
-            <div>
+            <div className="buttons-details">
               <FavoriteButton dataRecipe={ dataRecipeDetails[0] } url={ url } id={ id } />
               <ShareButton url={ url } />
             </div>
-            <h4 data-testid="recipe-title">{strMeal}</h4>
-            <p data-testid="recipe-category">{strCategory}</p>
-            <ul>
-              {
-                this.makeListIngredients(ingredientsMerged)
-              }
-            </ul>
-            <p data-testid="instructions">{strInstructions}</p>
-            <iframe
-              data-testid="video"
-              src={ strYoutube.replace('watch?v=', 'embed/') }
-              title="Recipe Video"
-              width="360px"
-              height="200px"
-            />
-            <Carousel className="carousel" variant="dark" interval={ 10000 }>
+            <div className="description">
+              <h4 data-testid="recipe-title">{strMeal}</h4>
+              <p data-testid="recipe-category">{strCategory}</p>
+              <h5>Ingredients:</h5>
+              <ul>
+                {
+                  this.makeListIngredients(ingredientsMerged)
+                }
+              </ul>
+              <h5>Instructions:</h5>
+              <p data-testid="instructions">{strInstructions}</p>
+            </div>
+            <div className="recipe-video">
+              <iframe
+                data-testid="video"
+                src={ strYoutube.replace('watch?v=', 'embed/') }
+                title="Recipe Video"
+                width="360px"
+                height="200px"
+              />
+            </div>
+            <Carousel className="carousel" variant="dark" interval={ 3000 }>
               <CarouselItem>
                 <div className="recomendation-card">
                   {RecomendationCard(drinkRecomendation, '0')}
@@ -180,19 +186,23 @@ class RecipeDetails extends React.Component {
             data-testid="recipe-photo"
             className="recipe-details-photo"
           />
-          <div>
+          <div className="buttons-details">
             <FavoriteButton dataRecipe={ dataRecipeDetails[0] } url={ url } id={ id } />
             <ShareButton url={ url } />
           </div>
-          <h4 data-testid="recipe-title">{strDrink}</h4>
-          <p data-testid="recipe-category">{strAlcoholic}</p>
-          <ul>
-            {
-              this.makeListIngredients(ingredientsMerged)
-            }
-          </ul>
-          <p data-testid="instructions">{ strInstructions }</p>
-          <Carousel className="carousel" variant="dark" interval={ 10000 }>
+          <div className="description">
+            <h4 data-testid="recipe-title">{strDrink}</h4>
+            <p data-testid="recipe-category">{strAlcoholic}</p>
+            <h5>Ingredients:</h5>
+            <ul>
+              {
+                this.makeListIngredients(ingredientsMerged)
+              }
+            </ul>
+            <h5>Instructions:</h5>
+            <p data-testid="instructions">{ strInstructions }</p>
+          </div>
+          <Carousel className="carousel" variant="dark" interval={ 3000 }>
             <CarouselItem>
               <div className="recomendation-card">
                 {RecomendationCard(foodRecomendation, '0')}

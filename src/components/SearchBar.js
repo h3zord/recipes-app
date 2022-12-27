@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import MyRecipesContext from '../context/recipesContext/MyRecipesContext';
 
+// eslint-disable-next-line
 function SearchBar(props) {
   const { url } = props;
   const [inputValue, setInputValue] = useState('');
@@ -16,6 +17,7 @@ function SearchBar(props) {
   const getSearchInput = document.getElementById('search-input');
   const msg = 'Sorry, we haven\'t found any recipes for these filters.';
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (inputValue && filterRadioType) return setIsDisabled(false);
     setIsDisabled(true);
@@ -96,62 +98,67 @@ function SearchBar(props) {
   };
 
   return (
-    <div>
-      <label htmlFor="search-input">
-        <input
-          type="text"
-          name="search-input"
-          id="search-input"
-          data-testid="search-input"
-          placeholder="Buscar..."
-          onChange={ ({ target }) => setInputValue(target.value) }
-        />
-      </label>
+    <div className="search-container">
+      <div className="search-content">
+        <label htmlFor="search-input">
+          <input
+            type="text"
+            name="search-input"
+            id="search-input"
+            data-testid="search-input"
+            placeholder="Buscar..."
+            className="search-input"
+            onChange={ ({ target }) => setInputValue(target.value) }
+          />
+        </label>
+      </div>
 
-      <label htmlFor="ingredient-radio">
-        <input
-          type="radio"
-          data-testid="ingredient-search-radio"
-          value="ingredient"
-          id="ingredient-radio"
-          name="radio-search"
-          onChange={ updateStateValue }
-        />
-        Ingredient
-      </label>
+      <div className="search-radios">
+        <label htmlFor="ingredient-radio">
+          <input
+            type="radio"
+            data-testid="ingredient-search-radio"
+            value="ingredient"
+            id="ingredient-radio"
+            name="radio-search"
+            onChange={ updateStateValue }
+          />
+          Ingredient
+        </label>
 
-      <label htmlFor="name-radio">
-        <input
-          type="radio"
-          data-testid="name-search-radio"
-          value="name"
-          id="name-radio"
-          name="radio-search"
-          onChange={ updateStateValue }
-        />
-        Name
-      </label>
+        <label htmlFor="name-radio">
+          <input
+            type="radio"
+            data-testid="name-search-radio"
+            value="name"
+            id="name-radio"
+            name="radio-search"
+            onChange={ updateStateValue }
+          />
+          Name
+        </label>
 
-      <label htmlFor="first-letter-radio">
-        <input
-          type="radio"
-          data-testid="first-letter-search-radio"
-          value="firstLetter"
-          id="first-letter-radio"
-          name="radio-search"
-          onChange={ updateStateValue }
-        />
-        First Letter
-      </label>
+        <label htmlFor="first-letter-radio">
+          <input
+            type="radio"
+            data-testid="first-letter-search-radio"
+            value="firstLetter"
+            id="first-letter-radio"
+            name="radio-search"
+            onChange={ updateStateValue }
+          />
+          First Letter
+        </label>
 
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ url.includes('foods') ? searchFoodRecipe : searchDrinkRecipe }
-        disabled={ isDisabled }
-      >
-        Search
-      </button>
+        <button
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ url.includes('foods') ? searchFoodRecipe : searchDrinkRecipe }
+          disabled={ isDisabled }
+        >
+          Search
+        </button>
+      </div>
 
     </div>
   );

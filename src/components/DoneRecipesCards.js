@@ -47,7 +47,7 @@ class DoneRecipesCard extends React.Component {
             {type === 'food' ? (`${nationality} - ${category}`) : alcoholicOrNot}
           </p>
           <p data-testid={ `${index}-horizontal-done-date` }>
-            RecipeDone in:
+            Recipe Done in:
             {' '}
             {doneDate}
           </p>

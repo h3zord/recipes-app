@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import DoneRecipesCard from '../components/DoneRecipesCards';
-import localStorageFake from '../services/localStorageFake';
+import { getDoneRecipes } from '../services/doneRecipes';
 import {
   doneRecipesAction, FILTER_ALL, FILTER_DRINKS, FILTER_FOODS,
 } from '../redux/actions/myActions';
@@ -14,7 +14,7 @@ function DoneRecipes(props) {
 
   const [recipes, setRecipes] = useState({});
 
-  const doneRecipesStorage = JSON.parse(localStorageFake);
+  const doneRecipesStorage = getDoneRecipes();
 
   const recoverLocalStorage = () => {
     setRecipes({
@@ -37,30 +37,32 @@ function DoneRecipes(props) {
   return (
     <>
       <Header history={ history } />
-      <Button
-        variant="secondary"
-        type="button"
-        data-testid="filter-by-all-btn"
-        onClick={ () => handleFoodBtn(FILTER_ALL) }
-      >
-        All
-      </Button>
-      <Button
-        variant="primary"
-        type="button"
-        data-testid="filter-by-food-btn"
-        onClick={ () => handleFoodBtn(FILTER_FOODS) }
-      >
-        Food
-      </Button>
-      <Button
-        variant="primary"
-        type="button"
-        data-testid="filter-by-drink-btn"
-        onClick={ () => handleFoodBtn(FILTER_DRINKS) }
-      >
-        Drink
-      </Button>
+      <div className="filters-buttons">
+        <Button
+          variant="secondary"
+          type="button"
+          data-testid="filter-by-all-btn"
+          onClick={ () => handleFoodBtn(FILTER_ALL) }
+        >
+          All
+        </Button>
+        <Button
+          variant="primary"
+          type="button"
+          data-testid="filter-by-food-btn"
+          onClick={ () => handleFoodBtn(FILTER_FOODS) }
+        >
+          Food
+        </Button>
+        <Button
+          variant="primary"
+          type="button"
+          data-testid="filter-by-drink-btn"
+          onClick={ () => handleFoodBtn(FILTER_DRINKS) }
+        >
+          Drink
+        </Button>
+      </div>
       <DoneRecipesCard className="card-container" />
     </>
   );
