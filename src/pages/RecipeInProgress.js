@@ -101,7 +101,6 @@ function RecipeInProgress(props) {
       .filter((measure) => measure[0].includes('strMeasure'));
     const ingredientsMerged = ingredientsToMerge(ingredientsList, measureList);
     ingrMerged = ingredientsMerged.length;
-    console.log(getRecipe);
     return (
       getRecipe.map((recipe) => (
         <div key={ recipe.idDrink }>
@@ -145,7 +144,6 @@ function RecipeInProgress(props) {
       .filter((measure) => measure[0].includes('strMeasure'));
     const ingredientsMerged = ingredientsToMerge(ingredientsList, measureList);
     ingrMerged = ingredientsMerged.length;
-    console.log(getRecipe);
     return (
       getRecipe.map((recipe) => (
         <div key={ recipe.idMeal }>

@@ -6,18 +6,18 @@ import Header from '../components/Header';
 function Profile(props) {
   const { history } = props;
 
-  const getEmail = () => {
-    const email = localStorage.getItem('user');
-    const emailParse = JSON.parse(email);
-    if (emailParse !== null) {
-      return (
-        <h1 className="profile-email" data-testid="profile-email">{emailParse.email}</h1>
-      );
-    }
-    return (
-      <h1 data-testid="profile-email">email</h1>
-    );
-  };
+  // const getEmail = () => {
+  //   const email = localStorage.getItem('user');
+  //   const emailParse = JSON.parse(email);
+  //   if (emailParse !== null) {
+  //     return (
+  //       <h1 className="profile-email" data-testid="profile-email">{emailParse.email}</h1>
+  //     );
+  //   }
+  //   return (
+  //     <h1 data-testid="profile-email">email</h1>
+  //   );
+  // };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -29,7 +29,7 @@ function Profile(props) {
       <Header history={ history } />
 
       <section className="profile-container">
-        { getEmail() }
+        {/* { getEmail() } */}
         <button
           type="button"
           className="btn btn-primary"
