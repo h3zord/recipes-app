@@ -5,7 +5,9 @@ import FavoriteButton from '../components/FavoriteButton';
 import { getInProgressRecipe,
   saveInProgressRecipe } from '../services/inProgressRecipeStorage';
 import MyRecipesContext from '../context/recipesContext/MyRecipesContext';
+import { addDoneRecipes } from '../services/doneRecipes';
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 function RecipeInProgress(props) {
   const [doneIngredients, setDoneIngredients] = useState({});
   const [isDisabled, setIsDisabled] = useState(true);
@@ -19,8 +21,39 @@ function RecipeInProgress(props) {
     isFood,
     ingredientsToMerge } = useContext(MyRecipesContext);
   let ingrMerged;
+  let doneRecipe;
 
   const changeRoute = () => {
+    const today = new Date();
+
+    if (url.includes('foods')) {
+      doneRecipe = {
+        id: getRecipe[0].idMeal,
+        type: 'food',
+        nationality: getRecipe[0].strArea,
+        category: getRecipe[0].strCategory,
+        alcoholicOrNot: '',
+        name: getRecipe[0].strMeal,
+        image: getRecipe[0].strMealThumb,
+        doneDate: today.toDateString(),
+        tags: getRecipe[0].strTags.split(', '),
+      };
+    }
+
+    if (url.includes('drinks')) {
+      doneRecipe = {
+        id: getRecipe[0].idDrink,
+        type: 'drink',
+        nationality: '',
+        category: getRecipe[0].strCategory,
+        alcoholicOrNot: getRecipe[0].strAlcoholic,
+        name: getRecipe[0].strDrink,
+        image: getRecipe[0].strDrinkThumb,
+        doneDate: today.toDateString(),
+        tags: [],
+      };
+    }
+    addDoneRecipes(doneRecipe);
     history.push('/done-recipes');
   };
 
@@ -44,7 +77,7 @@ function RecipeInProgress(props) {
 
   const makeListIngredients = (ingredientsMerged) => (
     ingredientsMerged.map((ingredient, index) => (
-      <div key={ ingredient }>
+      <div key={ index } className="ingredients-list">
         <label htmlFor={ index } data-testid={ `${index}-ingredient-step` }>
           <input
             type="checkbox"
@@ -75,27 +108,31 @@ function RecipeInProgress(props) {
             data-testid="recipe-photo"
             src={ recipe.strDrinkThumb }
             alt=""
+            className="recipe-details-photo"
           />
-          <p data-testid="recipe-title">{ recipe.strDrink }</p>
-          <FavoriteButton url={ url } id={ idRecipe } dataRecipe={ getRecipe[0] } />
-          <ShareButton url={ `/drinks/${idRecipe}` } />
-          <p data-testid="recipe-category">{recipe.strCategory}</p>
-          <p data-testid="instructions">{recipe.strInstructions}</p>
-          <ul>
+          <div className="buttons-details">
+            <FavoriteButton url={ url } id={ idRecipe } dataRecipe={ getRecipe[0] } />
+            <ShareButton url={ `/drinks/${idRecipe}` } />
+          </div>
+          <div className="description">
+            <p data-testid="recipe-title">{ recipe.strDrink }</p>
+            <p data-testid="recipe-category">{recipe.strCategory}</p>
+            <p data-testid="instructions">{recipe.strInstructions}</p>
             {
               makeListIngredients(ingredientsMerged)
             }
-          </ul>
-
-          <button
-            type="button"
-            id="button"
-            data-testid="finish-recipe-btn"
-            disabled={ isDisabled }
-            onClick={ changeRoute }
-          >
-            Finalizar Receita
-          </button>
+          </div>
+          <div className="finish-button">
+            <button
+              type="button"
+              id="button"
+              data-testid="finish-recipe-btn"
+              disabled={ isDisabled }
+              onClick={ changeRoute }
+            >
+              Finalizar Receita
+            </button>
+          </div>
         </div>
       )));
   };
@@ -114,27 +151,32 @@ function RecipeInProgress(props) {
             data-testid="recipe-photo"
             src={ recipe.strMealThumb }
             alt=""
+            className="recipe-details-photo"
           />
-          <p data-testid="recipe-title">{ recipe.strMeal }</p>
-          <FavoriteButton url={ url } id={ idRecipe } dataRecipe={ getRecipe[0] } />
-          <ShareButton url={ `/foods/${idRecipe}` } />
-          <p data-testid="recipe-category">{recipe.strCategory}</p>
-          <p data-testid="instructions">{recipe.strInstructions}</p>
-          <ul>
+          <div className="buttons-details">
+            <FavoriteButton url={ url } id={ idRecipe } dataRecipe={ getRecipe[0] } />
+            <ShareButton url={ `/foods/${idRecipe}` } />
+          </div>
+          <div className="description">
+            <p data-testid="recipe-title">{ recipe.strMeal }</p>
+            <p data-testid="recipe-category">{recipe.strCategory}</p>
+            <p data-testid="instructions">{recipe.strInstructions}</p>
             {
               makeListIngredients(ingredientsMerged)
             }
-          </ul>
+          </div>
 
-          <button
-            type="button"
-            id="button"
-            data-testid="finish-recipe-btn"
-            disabled={ isDisabled }
-            onClick={ changeRoute }
-          >
-            Finalizar Receita
-          </button>
+          <div className="finish-button">
+            <button
+              type="button"
+              id="button"
+              data-testid="finish-recipe-btn"
+              disabled={ isDisabled }
+              onClick={ changeRoute }
+            >
+              Finalizar Receita
+            </button>
+          </div>
         </div>
       )));
   };

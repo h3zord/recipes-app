@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
@@ -10,19 +10,20 @@ import {
   saveFavoriteStorage,
 } from '../services/favoriteStorage';
 
-function FavoriteButton(props) {
-  const { dataRecipe, url, id, isFavorite, toggleFavorite } = props;
-  useEffect(() => {
+class FavoriteButton extends React.Component {
+  componentDidMount() {
+    const { id, toggleFavorite } = this.props;
     const getFavorites = getFavoriteStorage();
     if (getFavorites) {
       return getFavorites
         .some((favoriteRecipe) => favoriteRecipe.id === id)
         ? toggleFavorite(true) : toggleFavorite(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }
 
-  const addFavoriteRecipe = () => {
+  addFavoriteRecipe = () => {
+    const { dataRecipe, url, toggleFavorite } = this.props;
+
     const recipeToAdd = {
       id: url.includes('foods') ? dataRecipe.idMeal : dataRecipe.idDrink,
       type: url.includes('foods') ? 'food' : 'drink',
@@ -36,7 +37,9 @@ function FavoriteButton(props) {
     toggleFavorite(true);
   };
 
-  const removeFavoriteRecipe = () => {
+  removeFavoriteRecipe = () => {
+    const { id, toggleFavorite } = this.props;
+
     const getFavorites = getFavoriteStorage();
     const updatedRecipe = getFavorites
       .filter((favoriteRecipe) => favoriteRecipe.id !== id);
@@ -44,19 +47,23 @@ function FavoriteButton(props) {
     toggleFavorite(false);
   };
 
-  return (
-    <button
-      type="button"
-      data-testid="favorite-btn"
-      onClick={ isFavorite ? removeFavoriteRecipe : addFavoriteRecipe }
-      src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-    >
-      <img
+  render() {
+    const { isFavorite } = this.props;
+    return (
+
+      <button
+        type="button"
+        data-testid="favorite-btn"
+        onClick={ isFavorite ? this.removeFavoriteRecipe : this.addFavoriteRecipe }
         src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-        alt="Favorite Icon"
-      />
-    </button>
-  );
+      >
+        <img
+          src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+          alt="Favorite Icon"
+        />
+      </button>
+    );
+  }
 }
 
 FavoriteButton.propTypes = {

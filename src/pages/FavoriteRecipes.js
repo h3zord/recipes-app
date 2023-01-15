@@ -2,6 +2,7 @@ import PropTypes, { object } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import clipboardCopy from 'clipboard-copy';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
@@ -29,14 +30,11 @@ function FavoriteRecipes(props) {
     setfavRecipes(favoriteDrinks);
   };
   function showRecipes() {
-    // if (favRecipes) {
     return (
       favRecipes.map((
         { id, nationality, category, alcoholicOrNot, type, image, name }, i,
       ) => {
         function copyUrl() {
-          // navigator.clipboard
-          //   .writeText(`${window.location.origin}/${type}s/${id}`);
           clipboardCopy(`${window.location.origin}/${type}s/${id}`);
           settransfArea(true);
         }
@@ -48,14 +46,13 @@ function FavoriteRecipes(props) {
           setfavRecipes(updatedRecipe);
         };
         return (
-          <div key={ id }>
+          <Card key={ id } className="recipe-card">
             <Link to={ `/${type}s/${id}` }>
               <img
                 data-testid={ `${i}-horizontal-image` }
                 src={ image }
                 alt={ name }
-                width="150px"
-                height="150px"
+                className="recomendation-img"
               />
             </Link>
             <div>
@@ -82,6 +79,17 @@ function FavoriteRecipes(props) {
 
             <div>
               <button
+                data-testid={ `${i}-horizontal-favorite-btn` }
+                type="button"
+                src={ blackHeartIcon }
+                onClick={ () => removeFavoriteRecipe() }
+              >
+                <img
+                  src={ blackHeartIcon }
+                  alt="Favorite Icon"
+                />
+              </button>
+              <button
                 src={ shareIcon }
                 type="button"
                 data-testid={ `${i}-horizontal-share-btn` }
@@ -93,19 +101,8 @@ function FavoriteRecipes(props) {
                 />
                 { transfArea === true ? ' Link copied!' : '' }
               </button>
-              <button
-                data-testid={ `${i}-horizontal-favorite-btn` }
-                type="button"
-                src={ blackHeartIcon }
-                onClick={ () => removeFavoriteRecipe() }
-              >
-                <img
-                  src={ blackHeartIcon }
-                  alt="Favorite Icon"
-                />
-              </button>
             </div>
-          </div>
+          </Card>
         );
       }));
     // }
@@ -115,12 +112,12 @@ function FavoriteRecipes(props) {
     <>
       <Header history={ history } />
 
-      <section>
+      <section className="filters-buttons">
         <button
           data-testid="filter-by-all-btn"
           type="button"
           value="All"
-          className="btn btn-primary"
+          className="btn btn-secondary"
           onClick={ () => setfavRecipes(storageRecipes) }
         >
           All
@@ -144,9 +141,11 @@ function FavoriteRecipes(props) {
           Drinks
         </button>
       </section>
-      {
-        showRecipes()
-      }
+      <div className="favorite-container">
+        {
+          showRecipes()
+        }
+      </div>
     </>
   );
 }

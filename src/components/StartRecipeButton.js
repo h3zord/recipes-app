@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { getInProgressRecipe } from '../services/inProgressRecipeStorage';
 
 function StartRecipeButton(props) {
-  // const [recipeDone, setRecipeDone] = useState(false);
-  // const [inProgressRecipe, setInProgressRecipe] = useState(false);
   const { recipeId, url } = props;
   const history = useHistory();
 
@@ -14,7 +12,10 @@ function StartRecipeButton(props) {
     localStorage.getItem('doneRecipes') || '[]',
   ).some(({ id }) => id === recipeId);
 
-  const inProgressRecipe = !Object.keys(getInProgressRecipe())
+  const getInProgressRecipes = getInProgressRecipe();
+
+  const inProgressRecipe = Object.keys(getInProgressRecipes)
+    .filter((el) => getInProgressRecipes[el].length)
     .some((id) => id === recipeId);
 
   return (
@@ -26,7 +27,7 @@ function StartRecipeButton(props) {
         className={ inProgressRecipe
           ? 'progress-recipe btn btn-info' : 'progress-recipe btn btn-success' }
       >
-        {inProgressRecipe ? 'Continue Recipe' : 'Start Recipe'}
+        { inProgressRecipe ? 'Continue Recipe' : 'Start Recipe' }
       </button>
     )
   );

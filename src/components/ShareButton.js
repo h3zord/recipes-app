@@ -13,20 +13,18 @@ function ShareButton(props) {
   };
 
   return (
-    <>
-      <button
-        type="button"
-        data-testid="share-btn"
-        onClick={ copyUrl }
-      >
-        <img
-          src={ shareIcon }
-          alt="Share Icon"
-        />
-      </button>
-      { isCopied && <p>Link copied!</p> }
-    </>
-
+    <button
+      src={ shareIcon }
+      type="button"
+      data-testid="share-btn"
+      onClick={ copyUrl }
+    >
+      <img
+        src={ shareIcon }
+        alt="Share Icon"
+      />
+      { isCopied && ' Link copied!' }
+    </button>
   );
 }
 

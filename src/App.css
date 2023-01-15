@@ -8,7 +8,13 @@
   display: flex;
   flex-direction: column;
   margin: 15px;
-  padding: 15px;
+  padding: 10px;
+}
+
+.recipe-card p {
+  font-family: Epilogue , sans-serif;
+  font-size: 1rem;
+  padding-top: 10px;
 }
 
 .cards {
@@ -52,16 +58,25 @@
 
 .profile-email {
   font-size: 1.8em;
+  padding: 15px;
 }
 
 .profile-container {
+  display: flex;
+  flex-direction: column;
   margin: auto;
-  width: 95%;
+  width: 90%;
+}
+
+.profile-container h1 {
+  text-align: center;
 }
 
 .recipe-details-photo {
-  height: 200px;
+  border: 1px solid grey;
+  border-radius: 5px;
   object-fit: cover;
+  padding: 5px;
   width: 100%;
 }
 
@@ -77,10 +92,6 @@
 
 .carousel {
   margin: 10px;
-
-  /* margin-left: 100px;
-  width: 80%; */
-
 }
 
 .progress-recipe {
@@ -88,3 +99,112 @@
   position: fixed;
   z-index: 100;
 }
+
+.btn.btn-primary {
+  margin: 1.2px;
+  margin-top: 5px;
+}
+
+.btn.btn-secondary {
+  margin: 1px;
+  margin-top: 5px;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-content {
+  width: 100%;
+}
+
+.search-input {
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-family: Epilogue , sans-serif;
+  padding: 5px;
+  width: 180%;
+}
+
+.search-radios {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 3px;
+}
+
+.search-radios input {
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.search-radios label {
+  font-family: Epilogue , sans-serif;
+}
+
+.search-radios button {
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-family: Epilogue , sans-serif;
+  padding: 5px;
+}
+
+.filters-buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.remove-filters {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-details {
+  padding: 10px;
+}
+
+.buttons-details button {
+  margin: 2px;
+}
+
+.description {
+  font-family: Epilogue , sans-serif;
+  padding: 10px;
+}
+
+.recipe-video {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+iframe {
+  border: 1px solid gray;
+}
+
+.ingredients-list label {
+  padding: 3px;
+}
+
+.ingredients-list input {
+  margin-right: 5px;
+}
+
+.finish-button {
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.finish-button button {
+  border: 1px solid gray;
+  padding: 7px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@600&display=swap') ;

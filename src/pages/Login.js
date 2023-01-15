@@ -16,10 +16,10 @@ function Login() {
       setIsDisabled(true);
     }
   };
-  //
 
   useEffect(() => {
     loginValidation();
+    history.push('/foods');
   });
 
   const handleSubmit = () => {
