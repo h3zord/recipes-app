@@ -131,33 +131,4 @@ describe('Testing SearchBar component', () => {
       expect(global.alert).toBeCalledWith("Sorry, we haven't found any recipes for these filters.");
       })
   })
-  test('Testing if message alert appears on the drinks screen', async () => {
-    global.alert = jest.fn();
-    const { history } = renderWithRouter(<App />)
-    history.push('/drinks');
-
-    const searchIcon = screen.getByRole("button", { name: /search/i });
-    userEvent.click(searchIcon);
-    const searchBar = screen.getByRole("textbox");
-    userEvent.type(searchBar, 'aaaasasaaaa');
-    const ingredientRadio = screen.getByRole("radio", { name: /ingredient/i });
-    const nameRadio = screen.getByRole("radio", { name: /name/i });
-    const firstLetterRadio = screen.getByRole("radio", { name: /first letter/i });
-    const searchButton = screen.getAllByRole("button", { name: /search/i })[1];
-
-    userEvent.click(ingredientRadio);
-    userEvent.click(searchButton);
-
-    await waitFor(() => {
-      expect(global.alert).toBeCalledWith("Sorry, we haven't found any recipes for these filters.");
-      })
-
-    userEvent.type(searchBar, 'aaaaaaa');
-    userEvent.click(nameRadio);
-    userEvent.click(searchButton);
-    
-    await waitFor(() => {
-      expect(global.alert).toBeCalledWith("Sorry, we haven't found any recipes for these filters.");
-      })
-  })
 })

@@ -9,7 +9,7 @@ describe('test', () => {
     localStorage.setItem('inProgressRecipes', JSON.stringify({53060: [6, 5, 4, 3, 2, 1]}))
     const { history } = renderWithRouterAndRedux(<App />);
     history.push('/foods/53060');
-    const startRecipe = await screen.findByRole("button", { name: /start recipe/i });
+    const startRecipe = await screen.findByRole("button", { name: /continue recipe/i });
     userEvent.click(startRecipe);
     const finishRecipe = await screen.findByRole("button", { name: /finalizar receita/i });
     userEvent.click(finishRecipe);

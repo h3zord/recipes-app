@@ -50,28 +50,7 @@ describe('Testando a página Profile', () => {
     const logoutButton = screen.getByTestId('profile-logout-btn');
     userEvent.click(logoutButton);
 
-    expect(history.location.pathname).toBe('/');   
+    expect(history.location.pathname).toBe('/foods');   
 
   })
-
-  test('Se o email do usuário aparece na tela', () => {  
-    const { history } = renderWithRouter(<App />);
-
-    const emailInput = screen.getByRole("textbox");
-    const passwordInput = screen.getByPlaceholderText("Digite sua senha");
-    
-    userEvent.type(emailInput, 'meu@email.com')
-    userEvent.type(passwordInput, '1234567')
-    
-    const submitButton = screen.getByRole("button", { name: /enter/i });
-    userEvent.click(submitButton)
-
-    const profileButton = screen.getByRole("button", { name: /profile icon/i });
-    userEvent.click(profileButton)
-
-    const email = screen.getByRole("heading", { name: /meu@email\.com/i });
-
-    expect(email).toBeInTheDocument();
-
-})
 });

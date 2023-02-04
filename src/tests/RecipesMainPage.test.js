@@ -3,7 +3,6 @@ import React from 'react';
 import App from '../App';
 import userEvent from '@testing-library/user-event';
 import renderWithRouterAndRedux from './helpers/renderWithRouterAndRedux';
-import { meals } from '../../cypress/mocks/meals';
 
 describe('Testing foods recipes main page', () => {
   // afterEach(() => {
@@ -22,7 +21,7 @@ describe('Testing foods recipes main page', () => {
     const chickenFilter = await screen.findByRole("button", { name: /chicken/i });
     const dessertFilter = await screen.findByRole("button", { name: /dessert/i });
     const goatFilter = await screen.findByRole("button", { name: /goat/i });
-    const removeFilter = screen.getByRole("button", { name: /all/i });
+    const removeFilter = screen.getByRole("button", { name: /remove filters/i });
 
     expect(foodTitle).toBeInTheDocument();
     expect(searchInput).toBeInTheDocument();
@@ -58,9 +57,9 @@ describe('Testing drinks recipes main page', () => {
     const ordinaryDrink = await screen.findByRole("button", { name: /ordinary drink/i });
     const cocktailFilter = await screen.findByRole("button", { name: /cocktail/i });
     const shakeFilter = await screen.findByRole("button", { name: /shake/i });
-    const otherUnknownFilter = await screen.findByRole("button", { name: /other\/unknown/i });
+    const otherUnknownFilter = await screen.findByRole('button', { name: /other \/ unknown/i })
     const cocoaFilter = await screen.findByRole("button", { name: /cocoa/i });
-    const removeFilter = screen.getByRole("button", { name: /all/i });
+    const removeFilter = screen.getByRole("button", { name: /remove filters/i });
 
     expect(drinkTitle).toBeInTheDocument();
     expect(searchInput).toBeInTheDocument();
