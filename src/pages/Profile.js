@@ -20,7 +20,6 @@ function Profile(props) {
   // };
 
   const handleLogout = () => {
-    localStorage.clear();
     history.push('/');
   };
 
