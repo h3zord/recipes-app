@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://h3zord.github.io/recipes-app/",
-  "engines": {
-    "node": "16"
-  },
+  
   "dependencies": {
     "@redux-devtools/extension": "^3.2.3",
     "bootstrap": "^4.5.3",

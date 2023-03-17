@@ -1,3 +1,23 @@
+.config-container {
+  align-items: center;
+  background-color: rgb(210, 210, 210);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.config-container h3 {
+  padding: 10px;
+  text-align: center;
+}
+
+.app-button {
+  border: 2px solid black;
+  font-family: monospace;
+  margin-left: 15px;
+  padding: 5px;
+}
+
 .card-image {
   width: 100%;
 }

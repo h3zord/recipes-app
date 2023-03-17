@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Recipes from './components/Recipes';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import Profile from './pages/Profile';
-import Login from './pages/Login';
 import RecipeDetails from './pages/RecipeDetails';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import RecipeInProgress from './pages/RecipeInProgress';
+import Config from './pages/Config';
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ Login } />
+      <Route exact path="/" component={ Config } />
       <Route exact path="/foods" component={ Recipes } />
       <Route exact path="/drinks" component={ Recipes } />
       <Route exact path="/foods/:id" component={ RecipeDetails } />
