@@ -53,15 +53,12 @@ export default function Config() {
       <br />
 
       <h4>Demonstração</h4>
-      <br />
 
       <img
         src={ configImage }
         alt="config example"
         width="75%"
       />
-      <br />
-
     </div>
   );
 }
