@@ -1,7 +1,7 @@
 <h1 align="center">Boas-vindas ao repositório do Recipes App!</h1>
 
 <h2 align="center">
-  <a href="https://h3zord.github.io/recipes-app" target="a_blank">
+  <a href="https://h3zord.github.io/recipes-app" target="_blank">
     Aplicação
   </a>
 </h2>
