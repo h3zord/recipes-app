@@ -43,14 +43,14 @@ describe('Testando a página Profile', () => {
   
   })
 
-  test('Se o botão Logout  ao ser clicado direciona a pagina Login', () => {
+  test('Se o botão Logout ao ser clicado direciona corretamente', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/profile');
 
     const logoutButton = screen.getByTestId('profile-logout-btn');
     userEvent.click(logoutButton);
 
-    expect(history.location.pathname).toBe('/foods');   
+    expect(history.location.pathname).toBe('/');   
 
   })
 });
