@@ -12,7 +12,14 @@
 <strong>Recipes App</strong> é um projeto em grupo de quatro integrantes que desenvolveram um aplicativo de receitas para dispositivos móveis. Durante o desenvolvimento, o grupo trabalhou tanto individualmente quanto em pair programming. As receitas apresentadas são obtidas de uma API externa.
 
 <h2 align="center">Demonstração</h2>
-<br />
+<br/>
+
+<div align="center">
+
+https://user-images.githubusercontent.com/102384026/226143954-793920a8-731d-4af4-b8b5-18606b9d179a.mp4
+
+</div>
+
 <br/>
 <br/>
 
