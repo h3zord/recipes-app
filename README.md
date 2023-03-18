@@ -13,15 +13,6 @@
 
 <h2 align="center">Demonstração</h2>
 <br />
-
-<div align="center">
-  <video 
-    src="./src/videos/video-template.mp4"
-    autobuffer="true"
-    controls
-    width="90%"
-  >
-</div>
 <br/>
 <br/>
 
