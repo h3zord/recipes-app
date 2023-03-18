@@ -1,11 +1,13 @@
 <h1 align="center">Boas-vindas ao repositório do Recipes App!</h1>
 
 <h2 align="center">
-  <a href="https://h3zord.github.io/recipes-app">-> Aplicação <-</a>
+  <a href="https://h3zord.github.io/recipes-app" target="a_blank">
+    Aplicação
+  </a>
 </h2>
 <br/>
 
-## Objetivo:
+## Objetivo
 
 <strong>Recipes App</strong> é um projeto em grupo de quatro integrantes que desenvolveram um aplicativo de receitas para dispositivos móveis. Durante o desenvolvimento, o grupo trabalhou tanto individualmente quanto em pair programming. As receitas apresentadas são obtidas de uma API externa.
 
