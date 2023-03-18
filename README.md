@@ -9,7 +9,7 @@
 
 ## Objetivo
 
-<strong>Recipes App</strong> é um projeto em grupo de quatro integrantes que desenvolveram um aplicativo de receitas para dispositivos móveis. Durante o desenvolvimento, o grupo trabalhou tanto individualmente quanto em pair programming. As receitas apresentadas são obtidas de uma API externa.
+O aplicativo <strong>Recipes App</strong> foi desenvolvido para dispositivos móveis e tem como foco oferecer uma ampla variedade de receitas e drinks. Com ele, é possível visualizar, buscar, filtrar, marcar como favoritas e acompanhar o progresso de sua preparação.
 
 <h2 align="center">Demonstração</h2>
 <br/>
