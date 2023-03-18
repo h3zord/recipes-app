@@ -46,7 +46,7 @@ A página principal do aplicativo contém ícones para comidas e drinks, um bot�
 ## Instalação e execução
 
 ### 1 - Clone o repositório:
-```bash
+```
 git@github.com:h3zord/recipes-app.git
 ```
 
@@ -57,11 +57,11 @@ cd recipes-app
 
 ### 3 - Instale as dependências:
 Caso utilize o npm
-```bash
+```
 npm install
 ```
 Caso utilize o yarn
-```bash
+```
 yarn install
 ```
 
