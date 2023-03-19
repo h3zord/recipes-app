@@ -25,11 +25,15 @@ https://user-images.githubusercontent.com/102384026/226144581-5e9987c0-a507-44c3
 
 ## O que foi desenvolvido?
 
-O projeto <strong>Recipes App</strong> é um aplicativo de receitas para dispositivos móveis desenvolvido por um grupo de quatro integrantes, que trabalharam individualmente e em pair programming. As receitas foram obtidas de uma API externa e o projeto foi organizado com reuniões diárias pelo Zoom, planejamento pelo Trello e comunicação assíncrona pelo Slack, além do controle de versões feito pelo Git.
+<strong>Recipes App</strong> é um projeto em grupo de quatro integrantes que desenvolveram um aplicativo de receitas para dispositivos móveis. Durante o desenvolvimento, o grupo trabalhou tanto individualmente quanto em pair programming. As receitas apresentadas são obtidas de uma API externa.
 
-O aplicativo foi construído com React, utilizando as ferramentas React Hooks, Context API e Redux para controlar o estado global da aplicação, e a estilização foi feita com CSS e Bootstrap. Os testes foram realizados com as bibliotecas Jest, Mocha e React Testing Library, alcançando uma cobertura de testes de cerca de 90%.
+Para garantir uma boa organização do projeto, o grupo realizou reuniões diárias por meio de Zoom, usou o Trello para planejamento e o Slack para comunicação assíncrona. O controle de versões foi feito utilizando o Git.
 
-A página principal do aplicativo contém ícones para comidas e drinks, um botão de busca, botões de filtro e um botão de perfil com preferências do usuário. Ao clicar em um card da receita, o usuário é direcionado para a página de detalhes, onde é possível favoritar e copiar o link da receita, visualizar os ingredientes e o modo de preparo. A página também permite acompanhar o progresso da receita e marcar os ingredientes usados, finalizando a receita. As informações são armazenadas no local storage.
+O aplicativo foi construído com React e as ferramentas React Hooks, Context API e Redux foram utilizadas para controlar o estado global da aplicação. A estilização foi feita com CSS e Bootstrap.
+Para realizar os testes, o grupo utilizou as bibliotecas Jest, Mocha e React Testing Library, alguns momentos foram desenvolvidos com TDD e a cobertura de testes chegou a aproximadamente 90% da aplicação.
+
+A página principal do aplicativo contém dois ícones na parte inferior que permitem alternar entre comidas e drinks. Na parte superior, há um botão de busca que permite pesquisar uma receita pelo nome, ingrediente ou pela primeira letra. Também há botões de filtro que retornam receitas específicas para o usuário. Além disso, há um botão de perfil que contém preferências do usuário, como receitas favoritas e finalizadas.
+Ao clicar em um card da receita, o usuário é direcionado para a página de detalhes, onde é possível favoritar e copiar o link da receita, visualizar os ingredientes necessários e o modo de preparo. O final da página contém um botão para iniciar a receita, permitindo ao usuário acompanhar o progresso e marcar os ingredientes usados, e, por fim, finalizar a receita. Estas informações são armazenadas no local storage.
 
 ## Linguagens e ferramentas:
 - HTML
