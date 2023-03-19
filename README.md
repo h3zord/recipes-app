@@ -47,7 +47,7 @@ A página principal do aplicativo contém ícones para comidas e drinks, um bot�
 
 ### 1 - Clone o repositório:
 ```
-git@github.com:h3zord/recipes-app.git
+git clone git@github.com:h3zord/recipes-app.git
 ```
 
 ### 2 - Entre no repositório:
